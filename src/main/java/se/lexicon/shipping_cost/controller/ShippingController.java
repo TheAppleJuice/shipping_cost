@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import se.lexicon.shipping_cost.entity.Box;
 import se.lexicon.shipping_cost.repository.BoxRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @RequestMapping("/shipping")
 public class ShippingController {
@@ -21,7 +24,8 @@ public class ShippingController {
     public void setBoxRepository(BoxRepository boxRepository) {
         this.boxRepository = boxRepository;
     }
-
+    //Testing functionality before connecting database.
+    private List<Box> boxList = new ArrayList<>();
 
     @GetMapping("/addBoxForm")
     public String showBoxForm(Model model) {
@@ -30,11 +34,17 @@ public class ShippingController {
         return "addBoxForm";
     }
 
+    @GetMapping("/showBoxList")
+    public String showList(Model model){
+        model.addAttribute("boxList", boxList);
+        return "showBoxList";
+    }
+
     @PostMapping("/add")
     public String add(@ModelAttribute("box") Box box) {
-        boxRepository.save(box);
+        boxList.add(box);
         System.out.println("box = " + box);
-        return "addBoxForm";
+        return "redirect:/shipping/showBoxList";
 
     }
 
