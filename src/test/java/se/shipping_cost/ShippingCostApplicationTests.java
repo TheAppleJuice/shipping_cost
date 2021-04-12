@@ -1,4 +1,4 @@
-package se.lexicon.shipping_cost;
+package se.shipping_cost;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
