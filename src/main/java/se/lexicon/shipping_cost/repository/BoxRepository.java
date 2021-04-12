@@ -1,4 +1,7 @@
 package se.lexicon.shipping_cost.repository;
 
-public interface BoxRepository {
+import org.springframework.data.repository.CrudRepository;
+import se.lexicon.shipping_cost.entity.Box;
+
+public interface BoxRepository extends CrudRepository<Box, Integer> {
 }
