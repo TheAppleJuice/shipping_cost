@@ -26,41 +26,49 @@
 
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="email" class="form-control" placeholder="Enter name here...">
+                    <input type="text" class="form-control" placeholder="Enter text here...">
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="letter" checked>
                     <label class="form-check-label" for="exampleRadios1">
                         Letter
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" checked>
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="packet" checked>
                     <label class="form-check-label" for="exampleRadios2">
                         Packet
                     </label>
                 </div>
+                <br>
                 <div class="form-group">
                     <label for="formGroupExampleInput">Weight</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="0.0">
+                    <input type="number" class="form-control" id="formGroupExampleInput" placeholder="0.0">
+
                 </div>
-                <select class="form-control">
-                    <label>Weight type</label>
-                    <option></option>
-                    <option>G</option>
-                    <option>KG</option>
 
-                </select>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Weight type</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
 
-                <select class="form-control">
-                    <label>Country</label>
-                    <option></option>
-                    <option>Sweden</option>
-                    <option>Australia</option>
+                        <option value=""></option>
+                        <option value="g">G</option>
+                        <option value="kg">KG</option>
+                    </select>
+                </div>
 
-                </select>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Country</label>
+                    <select class="form-control" id="exampleFormControlSelect2">
 
-                <button type="button" class="btn btn-primary">Register</button>
+                        <option value=""></option>
+                        <option value="Sweden">Sweden</option>
+                        <option value="Australia">Australia</option>
+                    </select>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Register</button>
 
 
             </form>
