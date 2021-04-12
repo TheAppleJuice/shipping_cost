@@ -13,7 +13,7 @@ import se.lexicon.shipping_cost.repository.BoxRepository;
 @Controller
 @RequestMapping("/shipping")
 public class ShippingController {
-    /*
+
     BoxRepository boxRepository;
 
 
@@ -22,7 +22,6 @@ public class ShippingController {
         this.boxRepository = boxRepository;
     }
 
-     */
 
     @GetMapping("/addBoxForm")
     public String showBoxForm(Model model) {
@@ -33,6 +32,7 @@ public class ShippingController {
 
     @PostMapping("/add")
     public String add(@ModelAttribute("box") Box box) {
+        boxRepository.save(box);
         System.out.println("box = " + box);
         return "addBoxForm";
 
