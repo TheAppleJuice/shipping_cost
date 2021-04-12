@@ -1,10 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>AddBoxForm</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <style>
+        body{
+            padding-top: 100px;
+        }
+    </style>
 </head>
 <body>
+
+<h2>Add Form</h2>
+
+<div class="container">
+    <form>
+
+        <div class="form-group">
+            <label>Name</label>
+            <input type="email" class="form-control" placeholder="Enter name here...">
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">
+                Letter
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" checked>
+            <label class="form-check-label" for="exampleRadios2">
+                Packet
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Weight</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="0.0">
+        </div>
+        <select class="form-control">
+            <label>Weight type</label>
+            <option></option>
+        </select>
+
+        <select class="form-control">
+            <label>Country</label>
+            <option></option>
+        </select>
+
+        <button type="button" class="btn btn-primary">Register</button>
+        <button type="button" class="btn btn-danger">Back</button>
+
+
+    </form>
+
+</div>
+
+
 
 </body>
 </html>
