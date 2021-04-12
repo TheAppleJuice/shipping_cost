@@ -16,6 +16,7 @@ public class Box {
     public Box() {
     }
 
+
     public Box(String name, String country, String type, double cost, double weight, String weightType, LocalDateTime createDate, boolean status) {
         this.name = name;
         this.country = country;
