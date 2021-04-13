@@ -24,6 +24,7 @@ public class ShippingController {
     public void setBoxRepository(BoxRepository boxRepository) {
         this.boxRepository = boxRepository;
     }
+
     //Testing functionality before connecting database.
     private List<Box> boxList = new ArrayList<>();
 
@@ -35,17 +36,41 @@ public class ShippingController {
     }
 
     @GetMapping("/showBoxList")
-    public String showList(Model model){
+    public String showList(Model model) {
         model.addAttribute("boxList", boxList);
         return "showBoxList";
     }
 
     @PostMapping("/add")
     public String add(@ModelAttribute("box") Box box) {
-        boxList.add(box);
+        box.setCost(calculateCost(box));
+        //boxList.add(box);
+        boxRepository.save(box);
         System.out.println("box = " + box);
         return "redirect:/shipping/showBoxList";
 
+    }
+
+    Double calculateCost (Box box){
+        double result = 0.0;
+        if (box == null ) throw new IllegalArgumentException("Add value to all parts.");
+        if (box.getCountry().equals("Sweden")){
+            if (box.getWeightType().equals("g")){
+                result= box.getWeight() * 2.0 * 2.5 ;
+            } else {
+                result=box.getWeight() * 1000.0 * 2.5;
+            }
+        }
+
+        if (box.getCountry().equals("Australia")){
+            if (box.getWeightType().equals("g")){
+                result= box.getWeight() * 2.0 * 7.0 ;
+            } else {
+                result=box.getWeight() * 1000.0 * 7.0;
+            }
+        }
+
+        return result;
     }
 
 

@@ -21,10 +21,48 @@
         <div class="card-header card bg-info text-white">
             <h2>Show List</h2>
         </div>
+
         <div class="card-body">
 
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Weight</th>
+                    <th>Weight type</th>
+                    <th>Country</th>
+                    <th>Cost</th>
 
+                </tr>
+                </thead>
+                <div th:if="${boxList.isEmpty()}">
+                    No products listed.
+                </div>
+                <div th:unless="${boxList.isEmpty()}">
+                    <div th:each="aBox : ${boxList}">
 
+                        <tbody>
+                        <tr>
+
+                            <td th:text="${aBox.id}"></td>
+                            <td th:text="${aBox.name}"></td>
+                            <td th:text="${aBox.type}"></td>
+                            <td th:text="${aBox.weight}"></td>
+                            <td th:text="${aBox.weightType}"></td>
+                            <td th:text="${aBox.country}"></td>
+                            <td th:text="${aBox.cost}"></td>
+
+                        </tr>
+
+                        </tbody>
+
+                    </div>
+
+                </div>
+
+            </table>
         </div>
         <div class="card-footer">
             <button type="button" class="btn btn-outline-danger">Back</button>
