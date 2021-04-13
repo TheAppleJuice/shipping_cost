@@ -26,7 +26,7 @@ public class ShippingController {
     }
 
     //Testing functionality before connecting database.
-    private List<Box> boxList = new ArrayList<>();
+    //private List<Box> boxList = new ArrayList<>();
 
     @GetMapping("/addBoxForm")
     public String showBoxForm(Model model) {
@@ -37,7 +37,7 @@ public class ShippingController {
 
     @GetMapping("/showBoxList")
     public String showList(Model model) {
-        model.addAttribute("boxList", boxList);
+        model.addAttribute("boxList", boxRepository.findAll());
         return "showBoxList";
     }
 

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" >
+    <meta charset="UTF-8">
     <title>ShowBoxList</title>
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     <style>
-        body{
+        body {
             padding-top: 100px;
         }
     </style>
@@ -20,6 +20,9 @@
     <div class="card">
         <div class="card-header card bg-info text-white">
             <h2>Show List</h2>
+            <p>
+                <a th:href="@{/shipping/addBoxForm}" class="btn btn-success" >Add Form</a>
+            </p>
         </div>
 
         <div class="card-body">
@@ -34,16 +37,21 @@
                     <th>Weight type</th>
                     <th>Country</th>
                     <th>Cost</th>
+                    <th>Status</th>
 
                 </tr>
                 </thead>
-                <div th:if="${boxList.isEmpty()}">
+
+                <div class="row" th:if="${boxList.isEmpty()}">
                     No products listed.
                 </div>
+
                 <div th:unless="${boxList.isEmpty()}">
+
                     <div th:each="aBox : ${boxList}">
 
                         <tbody>
+
                         <tr>
 
                             <td th:text="${aBox.id}"></td>
@@ -53,6 +61,7 @@
                             <td th:text="${aBox.weightType}"></td>
                             <td th:text="${aBox.country}"></td>
                             <td th:text="${aBox.cost}"></td>
+                            <td th:text="${aBox.status}"></td>
 
                         </tr>
 
@@ -65,7 +74,7 @@
             </table>
         </div>
         <div class="card-footer">
-            <button type="button" class="btn btn-outline-danger">Back</button>
+            <button type="button" class="btn btn-outline-danger " th:href="@{/shipping/add}">Back</button>
 
         </div>
 
@@ -74,8 +83,6 @@
 
 
 </div>
-
-
 
 
 </body>
